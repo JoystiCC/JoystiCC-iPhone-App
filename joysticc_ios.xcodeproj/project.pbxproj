@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C8A9680F1388330D008C5C62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8A9680E1388330D008C5C62 /* UIKit.framework */; };
+		C8A968111388330D008C5C62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8A968101388330D008C5C62 /* Foundation.framework */; };
+		C8A968131388330D008C5C62 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8A968121388330D008C5C62 /* CoreGraphics.framework */; };
+		C8A968191388330D008C5C62 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8A968171388330D008C5C62 /* InfoPlist.strings */; };
+		C8A9681C1388330D008C5C62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A9681B1388330D008C5C62 /* main.m */; };
+		C8A9681F1388330D008C5C62 /* joysticc_iosAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A9681E1388330D008C5C62 /* joysticc_iosAppDelegate.m */; };
+		C8A968221388330D008C5C62 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A968201388330D008C5C62 /* MainWindow.xib */; };
+		C8A968251388330D008C5C62 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A968241388330D008C5C62 /* RootViewController.m */; };
+		C8A968281388330D008C5C62 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A968261388330D008C5C62 /* RootViewController.xib */; };
+		C8A9682F1388330D008C5C62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8A9680E1388330D008C5C62 /* UIKit.framework */; };
+		C8A968301388330D008C5C62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8A968101388330D008C5C62 /* Foundation.framework */; };
+		C8A968311388330D008C5C62 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8A968121388330D008C5C62 /* CoreGraphics.framework */; };
+		C8A968391388330D008C5C62 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8A968371388330D008C5C62 /* InfoPlist.strings */; };
+		C8A9683C1388330D008C5C62 /* joysticc_iosTests.h in Resources */ = {isa = PBXBuildFile; fileRef = C8A9683B1388330D008C5C62 /* joysticc_iosTests.h */; };
+		C8A9683E1388330D008C5C62 /* joysticc_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A9683D1388330D008C5C62 /* joysticc_iosTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8A968321388330D008C5C62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8A968011388330D008C5C62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8A968091388330D008C5C62;
+			remoteInfo = joysticc_ios;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C8A9680A1388330D008C5C62 /* joysticc_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joysticc_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8A9680E1388330D008C5C62 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C8A968101388330D008C5C62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C8A968121388330D008C5C62 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C8A968161388330D008C5C62 /* joysticc_ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "joysticc_ios-Info.plist"; sourceTree = "<group>"; };
+		C8A968181388330D008C5C62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C8A9681A1388330D008C5C62 /* joysticc_ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "joysticc_ios-Prefix.pch"; sourceTree = "<group>"; };
+		C8A9681B1388330D008C5C62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C8A9681D1388330D008C5C62 /* joysticc_iosAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = joysticc_iosAppDelegate.h; sourceTree = "<group>"; };
+		C8A9681E1388330D008C5C62 /* joysticc_iosAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = joysticc_iosAppDelegate.m; sourceTree = "<group>"; };
+		C8A968211388330D008C5C62 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		C8A968231388330D008C5C62 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		C8A968241388330D008C5C62 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		C8A968271388330D008C5C62 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		C8A9682E1388330D008C5C62 /* joysticc_iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = joysticc_iosTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8A968361388330D008C5C62 /* joysticc_iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "joysticc_iosTests-Info.plist"; sourceTree = "<group>"; };
+		C8A968381388330D008C5C62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C8A9683A1388330D008C5C62 /* joysticc_iosTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "joysticc_iosTests-Prefix.pch"; sourceTree = "<group>"; };
+		C8A9683B1388330D008C5C62 /* joysticc_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = joysticc_iosTests.h; sourceTree = "<group>"; };
+		C8A9683D1388330D008C5C62 /* joysticc_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = joysticc_iosTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C8A968071388330D008C5C62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8A9680F1388330D008C5C62 /* UIKit.framework in Frameworks */,
+				C8A968111388330D008C5C62 /* Foundation.framework in Frameworks */,
+				C8A968131388330D008C5C62 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8A9682A1388330D008C5C62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8A9682F1388330D008C5C62 /* UIKit.framework in Frameworks */,
+				C8A968301388330D008C5C62 /* Foundation.framework in Frameworks */,
+				C8A968311388330D008C5C62 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C8A967FF1388330D008C5C62 = {
+			isa = PBXGroup;
+			children = (
+				C8A968141388330D008C5C62 /* joysticc_ios */,
+				C8A968341388330D008C5C62 /* joysticc_iosTests */,
+				C8A9680D1388330D008C5C62 /* Frameworks */,
+				C8A9680B1388330D008C5C62 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C8A9680B1388330D008C5C62 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8A9680A1388330D008C5C62 /* joysticc_ios.app */,
+				C8A9682E1388330D008C5C62 /* joysticc_iosTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8A9680D1388330D008C5C62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8A9680E1388330D008C5C62 /* UIKit.framework */,
+				C8A968101388330D008C5C62 /* Foundation.framework */,
+				C8A968121388330D008C5C62 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8A968141388330D008C5C62 /* joysticc_ios */ = {
+			isa = PBXGroup;
+			children = (
+				C8A9681D1388330D008C5C62 /* joysticc_iosAppDelegate.h */,
+				C8A9681E1388330D008C5C62 /* joysticc_iosAppDelegate.m */,
+				C8A968201388330D008C5C62 /* MainWindow.xib */,
+				C8A968231388330D008C5C62 /* RootViewController.h */,
+				C8A968241388330D008C5C62 /* RootViewController.m */,
+				C8A968261388330D008C5C62 /* RootViewController.xib */,
+				C8A968151388330D008C5C62 /* Supporting Files */,
+			);
+			path = joysticc_ios;
+			sourceTree = "<group>";
+		};
+		C8A968151388330D008C5C62 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8A968161388330D008C5C62 /* joysticc_ios-Info.plist */,
+				C8A968171388330D008C5C62 /* InfoPlist.strings */,
+				C8A9681A1388330D008C5C62 /* joysticc_ios-Prefix.pch */,
+				C8A9681B1388330D008C5C62 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8A968341388330D008C5C62 /* joysticc_iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				C8A9683B1388330D008C5C62 /* joysticc_iosTests.h */,
+				C8A9683D1388330D008C5C62 /* joysticc_iosTests.m */,
+				C8A968351388330D008C5C62 /* Supporting Files */,
+			);
+			path = joysticc_iosTests;
+			sourceTree = "<group>";
+		};
+		C8A968351388330D008C5C62 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8A968361388330D008C5C62 /* joysticc_iosTests-Info.plist */,
+				C8A968371388330D008C5C62 /* InfoPlist.strings */,
+				C8A9683A1388330D008C5C62 /* joysticc_iosTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8A968091388330D008C5C62 /* joysticc_ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8A968411388330D008C5C62 /* Build configuration list for PBXNativeTarget "joysticc_ios" */;
+			buildPhases = (
+				C8A968061388330D008C5C62 /* Sources */,
+				C8A968071388330D008C5C62 /* Frameworks */,
+				C8A968081388330D008C5C62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = joysticc_ios;
+			productName = joysticc_ios;
+			productReference = C8A9680A1388330D008C5C62 /* joysticc_ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C8A9682D1388330D008C5C62 /* joysticc_iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8A968441388330D008C5C62 /* Build configuration list for PBXNativeTarget "joysticc_iosTests" */;
+			buildPhases = (
+				C8A968291388330D008C5C62 /* Sources */,
+				C8A9682A1388330D008C5C62 /* Frameworks */,
+				C8A9682B1388330D008C5C62 /* Resources */,
+				C8A9682C1388330D008C5C62 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8A968331388330D008C5C62 /* PBXTargetDependency */,
+			);
+			name = joysticc_iosTests;
+			productName = joysticc_iosTests;
+			productReference = C8A9682E1388330D008C5C62 /* joysticc_iosTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8A968011388330D008C5C62 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C8A968041388330D008C5C62 /* Build configuration list for PBXProject "joysticc_ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C8A967FF1388330D008C5C62;
+			productRefGroup = C8A9680B1388330D008C5C62 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8A968091388330D008C5C62 /* joysticc_ios */,
+				C8A9682D1388330D008C5C62 /* joysticc_iosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C8A968081388330D008C5C62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8A968191388330D008C5C62 /* InfoPlist.strings in Resources */,
+				C8A968221388330D008C5C62 /* MainWindow.xib in Resources */,
+				C8A968281388330D008C5C62 /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8A9682B1388330D008C5C62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8A968391388330D008C5C62 /* InfoPlist.strings in Resources */,
+				C8A9683C1388330D008C5C62 /* joysticc_iosTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C8A9682C1388330D008C5C62 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C8A968061388330D008C5C62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8A9681C1388330D008C5C62 /* main.m in Sources */,
+				C8A9681F1388330D008C5C62 /* joysticc_iosAppDelegate.m in Sources */,
+				C8A968251388330D008C5C62 /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8A968291388330D008C5C62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8A9683E1388330D008C5C62 /* joysticc_iosTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8A968331388330D008C5C62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8A968091388330D008C5C62 /* joysticc_ios */;
+			targetProxy = C8A968321388330D008C5C62 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C8A968171388330D008C5C62 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8A968181388330D008C5C62 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C8A968201388330D008C5C62 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8A968211388330D008C5C62 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		C8A968261388330D008C5C62 /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8A968271388330D008C5C62 /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+		C8A968371388330D008C5C62 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8A968381388330D008C5C62 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C8A9683F1388330D008C5C62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C8A968401388330D008C5C62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		C8A968421388330D008C5C62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "joysticc_ios/joysticc_ios-Prefix.pch";
+				INFOPLIST_FILE = "joysticc_ios/joysticc_ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C8A968431388330D008C5C62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "joysticc_ios/joysticc_ios-Prefix.pch";
+				INFOPLIST_FILE = "joysticc_ios/joysticc_ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C8A968451388330D008C5C62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/joysticc_ios.app/joysticc_ios";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "joysticc_iosTests/joysticc_iosTests-Prefix.pch";
+				INFOPLIST_FILE = "joysticc_iosTests/joysticc_iosTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		C8A968461388330D008C5C62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/joysticc_ios.app/joysticc_ios";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "joysticc_iosTests/joysticc_iosTests-Prefix.pch";
+				INFOPLIST_FILE = "joysticc_iosTests/joysticc_iosTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C8A968041388330D008C5C62 /* Build configuration list for PBXProject "joysticc_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8A9683F1388330D008C5C62 /* Debug */,
+				C8A968401388330D008C5C62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8A968411388330D008C5C62 /* Build configuration list for PBXNativeTarget "joysticc_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8A968421388330D008C5C62 /* Debug */,
+				C8A968431388330D008C5C62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C8A968441388330D008C5C62 /* Build configuration list for PBXNativeTarget "joysticc_iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8A968451388330D008C5C62 /* Debug */,
+				C8A968461388330D008C5C62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C8A968011388330D008C5C62 /* Project object */;
+}
