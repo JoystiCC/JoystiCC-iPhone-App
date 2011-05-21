@@ -8,63 +8,84 @@
 
 #import "RootViewController.h"
 
+NSString * const kGameInfoCellId = @"ck_game_info_cell";
+
+
+@interface RootViewController (Private)
+- (void)refreshGameList:(id)sender;
+@end
+
 @implementation RootViewController
 
-- (void)viewDidLoad
-{
-	[super viewDidLoad];
+
+#pragma mark Initialization
+- (void)initialize {
+	
+	self.title = @"Game List";
+	
+	UIBarButtonItem *refreshItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
+																				 target:self 
+																				 action:@selector(refreshGameList:)];
+	self.navigationItem.rightBarButtonItem = refreshItem;
+
+
+	_currentGames = [[[NSMutableArray alloc] init] retain];
+	_pastGames = [[[NSMutableArray alloc] init] retain];
+
+
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+
+#pragma mark - Callbacks
+- (void)refreshGameList:(id)sender {
+	
+}
+
+
+
+#pragma mark - View Lifecycle
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	[self initialize];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
+- (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
+- (void)viewDidDisappear:(BOOL)animated {
 	[super viewDidDisappear:animated];
 }
 
-/*
- // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
- */
 
-// Customize the number of sections in the table view.
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+#pragma mark - UITableView Delegates
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return 0;
 }
 
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kGameInfoCellId];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kGameInfoCellId] autorelease];
 
-	// Configure the cell.
+		// TODO - configure the cell layout
+	}
+	
+	// TODO - add some content
+
     return cell;
 }
 
@@ -120,25 +141,23 @@
 	*/
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
+
+
+#pragma mark - Memory Management
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
-    // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
-
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [super dealloc];
+	
+	// clean up
+	[_currentGames release];
+	[_pastGames release];
 }
 
 @end

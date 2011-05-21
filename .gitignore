@@ -1,0 +1,28 @@
+.DS_Store
+Icon?
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+build
+
+*xcodeproj/*mode*
+*xcodeproj/*pbxuser
+*xcodeproj/*per*
+*xcodeproj/project.xcworkspace
+*xcodeproj/xcuserdata
+
+xcuserdata
+*.xcuserdatad
+
+*tmproj
+profile
+*.pbxuser
+*.mode1v3
+
+commit-filter.sh
+

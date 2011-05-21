@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PinViewController.h"
 
-@interface joysticc_iosAppDelegate : NSObject <UIApplicationDelegate> {
+@interface joysticc_iosAppDelegate : NSObject <UIApplicationDelegate, PinViewControllerDelegate> {
 
 }
 

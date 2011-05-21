@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const kGameInfoCellId;
+
 @interface RootViewController : UITableViewController {
 
+	NSMutableArray *_currentGames;
+	NSMutableArray *_pastGames;
+	
 }
 
 

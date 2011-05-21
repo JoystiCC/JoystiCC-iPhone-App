@@ -22,6 +22,11 @@
 		C8A968391388330D008C5C62 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8A968371388330D008C5C62 /* InfoPlist.strings */; };
 		C8A9683C1388330D008C5C62 /* joysticc_iosTests.h in Resources */ = {isa = PBXBuildFile; fileRef = C8A9683B1388330D008C5C62 /* joysticc_iosTests.h */; };
 		C8A9683E1388330D008C5C62 /* joysticc_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A9683D1388330D008C5C62 /* joysticc_iosTests.m */; };
+		C8A9684B138836E7008C5C62 /* ControlUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A96849138836E7008C5C62 /* ControlUserViewController.m */; };
+		C8A9684C138836E7008C5C62 /* ControlUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A9684A138836E7008C5C62 /* ControlUserViewController.xib */; };
+		C8A9685A138839E2008C5C62 /* PinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A96858138839E2008C5C62 /* PinViewController.m */; };
+		C8A9686F13884784008C5C62 /* pin_entry.png in Resources */ = {isa = PBXBuildFile; fileRef = C8A9686D13884784008C5C62 /* pin_entry.png */; };
+		C8A9687013884784008C5C62 /* pin_entry@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8A9686E13884784008C5C62 /* pin_entry@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,14 @@
 		C8A9683A1388330D008C5C62 /* joysticc_iosTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "joysticc_iosTests-Prefix.pch"; sourceTree = "<group>"; };
 		C8A9683B1388330D008C5C62 /* joysticc_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = joysticc_iosTests.h; sourceTree = "<group>"; };
 		C8A9683D1388330D008C5C62 /* joysticc_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = joysticc_iosTests.m; sourceTree = "<group>"; };
+		C8A96848138836E7008C5C62 /* ControlUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlUserViewController.h; sourceTree = "<group>"; };
+		C8A96849138836E7008C5C62 /* ControlUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlUserViewController.m; sourceTree = "<group>"; };
+		C8A9684A138836E7008C5C62 /* ControlUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlUserViewController.xib; sourceTree = "<group>"; };
+		C8A96857138839E2008C5C62 /* PinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinViewController.h; sourceTree = "<group>"; };
+		C8A96858138839E2008C5C62 /* PinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinViewController.m; sourceTree = "<group>"; };
+		C8A9685C138839F3008C5C62 /* PinViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinViewControllerDelegate.h; sourceTree = "<group>"; };
+		C8A9686D13884784008C5C62 /* pin_entry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin_entry.png; path = assets/controls/pin_entry.png; sourceTree = SOURCE_ROOT; };
+		C8A9686E13884784008C5C62 /* pin_entry@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin_entry@2x.png"; path = "assets/controls/pin_entry@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,13 +126,12 @@
 		C8A968141388330D008C5C62 /* joysticc_ios */ = {
 			isa = PBXGroup;
 			children = (
+				C8A968711388478B008C5C62 /* Assets */,
+				C8A9684713883442008C5C62 /* Controllers */,
+				C8A968151388330D008C5C62 /* Supporting Files */,
 				C8A9681D1388330D008C5C62 /* joysticc_iosAppDelegate.h */,
 				C8A9681E1388330D008C5C62 /* joysticc_iosAppDelegate.m */,
 				C8A968201388330D008C5C62 /* MainWindow.xib */,
-				C8A968231388330D008C5C62 /* RootViewController.h */,
-				C8A968241388330D008C5C62 /* RootViewController.m */,
-				C8A968261388330D008C5C62 /* RootViewController.xib */,
-				C8A968151388330D008C5C62 /* Supporting Files */,
 			);
 			path = joysticc_ios;
 			sourceTree = "<group>";
@@ -153,6 +165,63 @@
 				C8A9683A1388330D008C5C62 /* joysticc_iosTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8A9684713883442008C5C62 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C8A9687313885786008C5C62 /* Common */,
+				C8A9684E138837AD008C5C62 /* Game */,
+				C8A9684D1388379B008C5C62 /* General */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C8A9684D1388379B008C5C62 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				C8A968231388330D008C5C62 /* RootViewController.h */,
+				C8A968241388330D008C5C62 /* RootViewController.m */,
+				C8A968261388330D008C5C62 /* RootViewController.xib */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
+		C8A9684E138837AD008C5C62 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				C8A96848138836E7008C5C62 /* ControlUserViewController.h */,
+				C8A96849138836E7008C5C62 /* ControlUserViewController.m */,
+				C8A9684A138836E7008C5C62 /* ControlUserViewController.xib */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		C8A968711388478B008C5C62 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C8A9687213884792008C5C62 /* Controls */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		C8A9687213884792008C5C62 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				C8A9686D13884784008C5C62 /* pin_entry.png */,
+				C8A9686E13884784008C5C62 /* pin_entry@2x.png */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		C8A9687313885786008C5C62 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C8A9685C138839F3008C5C62 /* PinViewControllerDelegate.h */,
+				C8A96857138839E2008C5C62 /* PinViewController.h */,
+				C8A96858138839E2008C5C62 /* PinViewController.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +294,9 @@
 				C8A968191388330D008C5C62 /* InfoPlist.strings in Resources */,
 				C8A968221388330D008C5C62 /* MainWindow.xib in Resources */,
 				C8A968281388330D008C5C62 /* RootViewController.xib in Resources */,
+				C8A9684C138836E7008C5C62 /* ControlUserViewController.xib in Resources */,
+				C8A9686F13884784008C5C62 /* pin_entry.png in Resources */,
+				C8A9687013884784008C5C62 /* pin_entry@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +335,8 @@
 				C8A9681C1388330D008C5C62 /* main.m in Sources */,
 				C8A9681F1388330D008C5C62 /* joysticc_iosAppDelegate.m in Sources */,
 				C8A968251388330D008C5C62 /* RootViewController.m in Sources */,
+				C8A9684B138836E7008C5C62 /* ControlUserViewController.m in Sources */,
+				C8A9685A138839E2008C5C62 /* PinViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

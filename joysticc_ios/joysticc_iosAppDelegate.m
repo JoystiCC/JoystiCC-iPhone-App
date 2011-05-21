@@ -20,8 +20,23 @@
 	// Override point for customization after application launch.
 	// Add the navigation controller's view to the window and display.
 	self.window.rootViewController = self.navigationController;
+	
+	/*PinViewController *pinViewController = [[PinViewController alloc] init];
+	pinViewController.delegate = self;
+	self.window.rootViewController = pinViewController;
+	[pinViewController release];*/
+	
 	[self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)pinValidationRequested:(NSString *)aPin {
+	if ([aPin isEqualToString:@"1234"]) {
+		LLog(@"THE PIN IS VALID");
+	}
+	else {
+		LLog(@"THE PIN IS NOT VALID");
+	}
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
