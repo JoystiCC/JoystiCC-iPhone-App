@@ -148,6 +148,7 @@
 		C8D6DE23138912570089482A /* iphone_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D6DE21138912570089482A /* iphone_icon@2x.png */; };
 		C8D6DE25138912770089482A /* iphone_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D6DE24138912770089482A /* iphone_icon@2x.png */; };
 		C8D6DE271389127F0089482A /* iphone_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D6DE261389127F0089482A /* iphone_icon.png */; };
+		C8D6DE29138915860089482A /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8D6DE28138915860089482A /* Entitlements.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -360,6 +361,7 @@
 		C8D6DE21138912570089482A /* iphone_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone_icon@2x.png"; path = "assets/icons/iphone_icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		C8D6DE24138912770089482A /* iphone_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone_icon@2x.png"; sourceTree = "<group>"; };
 		C8D6DE261389127F0089482A /* iphone_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_icon.png; sourceTree = "<group>"; };
+		C8D6DE28138915860089482A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Entitlements.plist; path = ../Entitlements.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -449,6 +451,7 @@
 		C8A968151388330D008C5C62 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C8D6DE28138915860089482A /* Entitlements.plist */,
 				C8A968161388330D008C5C62 /* joysticc_ios-Info.plist */,
 				C8A968171388330D008C5C62 /* InfoPlist.strings */,
 				C8A9681A1388330D008C5C62 /* joysticc_ios-Prefix.pch */,
@@ -947,6 +950,7 @@
 				C8D6DE23138912570089482A /* iphone_icon@2x.png in Resources */,
 				C8D6DE25138912770089482A /* iphone_icon@2x.png in Resources */,
 				C8D6DE271389127F0089482A /* iphone_icon.png in Resources */,
+				C8D6DE29138915860089482A /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
