@@ -8,16 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ASIFormDataRequest.h"
 #import "ASIHTTPRequest.h"
 #import "ButtonGroupView.h"
 #import "BorderedView.h"
 #import "JSON.h"
-
-extern NSInteger const kUpKeyCode;
-extern NSInteger const kDownKeyCode;
-extern NSInteger const kLeftKeyCode;
-extern NSInteger const kRightKeyCode;
-extern NSInteger const kEnterKeyCode;
 
 extern float const kPlayerButtonWidth;
 extern float const kPlayerButtonHeight;

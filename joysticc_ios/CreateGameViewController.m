@@ -223,11 +223,35 @@
 			SBJsonParser *parser = [[SBJsonParser alloc] init];
 			NSDictionary *teamData = [parser objectWithData:[aRequest responseData]];
 			
+			NSLog(@"%@", teamData);
+			
+			NSString *joinTeamUrlString = [NSString stringWithFormat:kJoinTeamUrl, @"7"];
+			NSURL *joinTeamUrl = [NSURL URLWithString:joinTeamUrlString];
+			
+			ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:joinTeamUrl];
+			
+
+			NSLog(@"joining team %@", [teamData valueForKeyPath:@"team.id"]);
+			
+			[request setPostValue:@"32da39da51c742188b2572b65cf70fbda09e273dbb30e4fb83a617e09b271f80" forKey:@"access_key"];
+			[request setPostValue:@"1111" forKey:@"game_password"];
+			[request setPostValue:[teamData valueForKeyPath:@"team.id"] forKey:@"team_id"];
+			
+			[request setDelegate:self];
+			[request setDidFinishSelector:@selector(joinTeamDidFinish:)];
+			
+			[request startAsynchronous];
+			
+			
 			ControlUserViewController *controlViewController = [[ControlUserViewController alloc] 
 																initWithTeamData:teamData];
 			[self.navigationController pushViewController:controlViewController animated:YES];
 		}
 	}	
+}
+
+- (void)joinTeamDidFinish:(ASIHTTPRequest *)aRequest {
+	LLog(@"added to team");
 }
 
 #pragma mark - View lifecycle

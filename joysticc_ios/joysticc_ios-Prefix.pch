@@ -32,5 +32,14 @@
 #define kCreateGameUrl @"http://joysti.cc/games.json"
 #define kCreateTeamUrl @"http://joysti.cc/teams.json"
 #define kGetTeamUrl @"http://joysti.cc/teams/%@.json"
+#define kGetPlayerUrl @"http://joysti.cc/players/%@.json"
+#define kJoinTeamUrl @"http://joysti.cc/players/%@/join_team.json"
+
+#define kUpKeyCode 101001
+#define kDownKeyCode 101002
+#define kLeftKeyCode 101003
+#define kRightKeyCode 101004
+#define kEnterKeyCode 101005
+
 
 

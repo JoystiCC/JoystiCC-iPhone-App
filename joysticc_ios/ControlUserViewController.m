@@ -9,12 +9,6 @@
 #import "ControlUserViewController.h"
 #import "ButtonGroupView.h"
 
-NSInteger const kUpKeyCode = 101001;
-NSInteger const kDownKeyCode = 101002;
-NSInteger const kLeftKeyCode = 101003;
-NSInteger const kRightKeyCode = 101004;
-NSInteger const kEnterKeyCode = 101005;
-
 float const kPlayerButtonWidth = 52.0f;
 float const kPlayerButtonHeight = 58.0f;
 float const kPlayerButtonSpace = 8.0f;
@@ -93,45 +87,10 @@ float const kPlayerButtonSpace = 8.0f;
 	gameTimeView.borderColor = [UIColor colorWithWhite:0.0f alpha:0.4f];
 	gameTimeView.borderWidth = 3.0f;
 	
-	// build player buttons
-
-	/*UIImage *playerImageNormal = [UIImage imageNamed:@"player_button"];
-	UIImage *playerImageActive = [UIImage imageNamed:@"player_button_active"];
-	
-	NSMutableArray *playerButtons = [[NSMutableArray alloc] init];
-	for (int i = 0; i < _numPlayers; i++) {
-		
-		UIButton *playerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		
-		[playerButton setBackgroundImage:playerImageNormal forState:UIControlStateNormal];
-		[playerButton setBackgroundImage:playerImageActive forState:UIControlStateSelected];
-		[playerButton setBackgroundImage:playerImageActive forState:UIControlStateHighlighted];
-
-		playerButton.frame = CGRectMake(0.0f, 0.0f, kPlayerButtonWidth, kPlayerButtonHeight);
-
-		[playerButton setTitle:[NSString stringWithFormat:@"P%d", (i + 1)] 
-					  forState:UIControlStateNormal];
-		playerButton.titleLabel.font = [UIFont fontWithName:@"silkscreen" size:14.0f];
-		
-		[playerButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-		[playerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-		[playerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-		
-		playerButton.showsTouchWhenHighlighted = NO;
-		playerButton.tag = i + 1;		
-		
-		[playerButtons addObject:playerButton];
-	}*/
 
 	
 	currentPlayerView.borderColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
-	
-	/*ButtonGroupView *buttonGroup = [[ButtonGroupView alloc] initWithFrame:CGRectMake(0.0f, 398.0f, 
-																					 appFrame.size.width, 60.0f) 
-																  buttons:playerButtons];
-	buttonGroup.delegate = self;
-	[self.view addSubview:buttonGroup];*/
-	
+
 	[_waitOverlay bringSubviewToFront:self.view];
 	
 	
@@ -172,14 +131,34 @@ float const kPlayerButtonSpace = 8.0f;
 	UIButton *hitButton = (UIButton *)sender;	
 
 	NSInteger tag = hitButton.tag;
-	if (tag == kUpKeyCode || tag == kDownKeyCode || tag == kLeftKeyCode || tag == kRightKeyCode) {
+	if (tag == kUpKeyCode || tag == kDownKeyCode || tag == kLeftKeyCode || tag == kRightKeyCode || tag == kEnterKeyCode) {
 		
-	}
-	else if (tag == kEnterKeyCode) {
+		NSString *urlString = [NSString stringWithFormat:kGetPlayerUrl, @"7"];
+		NSURL *requestUrl = [NSURL URLWithString:urlString];
+		ASIFormDataRequest *request = [[ASIFormDataRequest alloc] initWithURL:requestUrl];
 		
+		[request setRequestMethod:@"PUT"];
+		
+		NSString *accessKey = @"32da39da51c742188b2572b65cf70fbda09e273dbb30e4fb83a617e09b271f80";
+		[request setPostValue:[NSString stringWithFormat:@"%d", tag] forKey:@"direction"];
+		[request setPostValue:accessKey forKey:@"access_key"];
+		
+		[request setDelegate:self];
+		[request setDidFailSelector:@selector(updateRequestFailed:)];
+		[request setDidFinishSelector:@selector(updateRequestFinished:)];
+		
+		[request startAsynchronous];
 	}
 }
 
+- (void)updateRequestFailed:(ASIHTTPRequest *)aRequest {
+	LLog(@"request failed");	
+}
+
+- (void)updateRequestFinished:(ASIHTTPRequest *)aRequest {
+	LLog(@"request finished");
+}
+	
 - (void)buttonWasSelected:(UIButton *)aButton {
 	LLog(@"button was selected: %d", aButton.tag);
 }
@@ -191,11 +170,11 @@ float const kPlayerButtonSpace = 8.0f;
 	LLog(@"Checking for game start: %d players", [players count]);
 	if ([players count] != 2) {
 		_failCount = 0;
-		_startGameTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f 
+		_startGameTimer = [[NSTimer scheduledTimerWithTimeInterval:1.0f 
 										 target:self 
 									   selector:@selector(hasGameStarted) 
 									   userInfo:nil 
-										repeats:YES];		
+										repeats:YES] retain];		
 	}
 	
 	
@@ -269,7 +248,47 @@ float const kPlayerButtonSpace = 8.0f;
 
 - (void)startGame {
 	[_startGameTimer invalidate];
+
+	// build player buttons
+	
+	UIImage *playerImageNormal = [UIImage imageNamed:@"player_button"];
+	UIImage *playerImageActive = [UIImage imageNamed:@"player_button_active"];
+
+	NSMutableArray *playerButtons = [[NSMutableArray alloc] init];
+	for (int i = 0; i < 1; i++) {
+		UIButton *playerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+		[playerButton setBackgroundImage:playerImageNormal forState:UIControlStateNormal];
+		[playerButton setBackgroundImage:playerImageActive forState:UIControlStateSelected];
+		[playerButton setBackgroundImage:playerImageActive forState:UIControlStateHighlighted];
+
+		playerButton.frame = CGRectMake(0.0f, 0.0f, kPlayerButtonWidth, kPlayerButtonHeight);
+
+		[playerButton setTitle:[NSString stringWithFormat:@"P%d", (i + 1)] 
+		forState:UIControlStateNormal];
+		playerButton.titleLabel.font = [UIFont fontWithName:@"silkscreen" size:14.0f];
+
+		[playerButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+		[playerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+		[playerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+
+		playerButton.showsTouchWhenHighlighted = NO;
+		playerButton.tag = i + 1;		
+
+		[playerButtons addObject:playerButton];
+	}
+	
+	playerNameLabel.text = @"PLAYER 1";
+	
+	CGRect appFrame = [[UIScreen mainScreen] bounds];
+	ButtonGroupView *buttonGroup = [[ButtonGroupView alloc] initWithFrame:CGRectMake(0.0f, 398.0f, 
+																					 appFrame.size.width, 60.0f) 
+																  buttons:playerButtons];
+	buttonGroup.delegate = self;
+	[self.view addSubview:buttonGroup];
+	
 	_waitOverlay.hidden = YES;
+	
 }
 
 
@@ -350,6 +369,8 @@ float const kPlayerButtonSpace = 8.0f;
 	[nextMoveView release];
 	
 	[_teamData release];
+	[_startGameTimer release];
+	
 	
     [super dealloc];
 }
