@@ -31,6 +31,8 @@
 - (void)setupViews {
 
 	
+	self.navigationController.navigationBarHidden = NO;
+	
 	_showingKeyboard = NO;
 
 	UIImage *headerImage = [UIImage imageNamed:@"header_bar"];
@@ -38,7 +40,6 @@
     UINavigationBar *navBar = self.navigationController.navigationBar;
     navBar.tintColor = [UIColor darkGrayColor];
     navBar.layer.contents = (id)headerImage.CGImage;
-	
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self 
 											 selector:@selector(keyboardWillShow:) 
@@ -93,6 +94,10 @@
 	[mainScrollView setContentSize:mainScrollView.bounds.size];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+	[self setupViews];
+}
+
 
 #pragma mark - Keyboard notifications
 	
@@ -125,6 +130,13 @@
 
 - (void)keyboardWillHide:(NSNotification *)aNotification {
 
+	if (!_showingKeyboard) return;
+	
+	CGSize bounds = [[UIScreen mainScreen] bounds].size;
+	
+	mainScrollView.frame = CGRectMake(0, 0, bounds.width, bounds.height);
+	mainScrollView.contentOffset = _scrollOffset;
+	
 	_showingKeyboard = NO;
 
 }
@@ -134,9 +146,10 @@
 
 	// get values
 	NSString *gameName = gameNameField.text;
-	NSString *teamName = teamNameField.text;
 	NSString *pinValue = pinField.text;
 	NSString *confirmPinValue = confirmPinField.text;
+	
+	[self.view resignFirstResponder];
 	
 	if (![pinValue isEqualToString:confirmPinValue]) {
 		UIAlertView *pinAlert = [[UIAlertView alloc] initWithTitle:@"PIN Mismatch" 
@@ -151,12 +164,12 @@
 		ASIFormDataRequest *req = [ASIFormDataRequest requestWithURL:createGameUrl];
 		
 		[req setDelegate:self];
-		[req setDidFinishSelector:@selector(createDidFinish:)];
+		[req setDidFinishSelector:@selector(createGameDidFinish:)];
 		[req setDidFailSelector:@selector(createDidFail:)];
 		
 		[req setPostValue:gameName forKey:@"name"];
 		[req setPostValue:pinValue forKey:@"password"];
-		//[req setPostValue:_lastName forKey:@"owner_id"];
+		[req setPostValue:@"6" forKey:@"owner_id"];
 		
 		[req startAsynchronous];
 	}
@@ -167,10 +180,55 @@
 	LLog(@"request failed: %@", [aRequest.error description]);
 }
 
-- (void)createDidFinish:(ASIHTTPRequest *)aRequest {
-	LLog(@"finished");
+- (void)createGameDidFinish:(ASIHTTPRequest *)aRequest {
+
+	if ([aRequest responseHeaders]) {
+		if ([aRequest responseStatusCode] != 422) {
+
+			NSString *teamName = teamNameField.text;
+			NSString *pinValue = pinField.text;
+
+			// parse game id
+			SBJsonParser *parser = [[SBJsonParser alloc] init];
+			NSDictionary *gameObj = [parser objectWithData:[aRequest responseData]];
+			
+			NSURL *createGameUrl = [NSURL URLWithString:kCreateTeamUrl];
+			ASIFormDataRequest *req = [ASIFormDataRequest requestWithURL:createGameUrl];
+			
+			[req setDelegate:self];
+			[req setDidFinishSelector:@selector(createTeamDidFinish:)];
+			[req setDidFailSelector:@selector(createDidFail:)];
+			
+			[req setPostValue:teamName forKey:@"name"];
+			[req setPostValue:pinValue forKey:@"game_password"];
+			[req setPostValue:[gameObj valueForKeyPath:@"game.id"] forKey:@"game_id"];
+			[req setPostValue:@"6" forKey:@"leader_id"];
+			
+			[req startAsynchronous];
+			
+		}
+		else {
+			LLog(@"failed!! 422");
+		}
+	}
 }
 
+- (void)createTeamDidFinish:(ASIHTTPRequest *)aRequest {
+
+	if ([aRequest responseHeaders]) {
+		if ([aRequest responseStatusCode] != 422) {
+	
+			LLog(@"game and team created ..");
+			
+			SBJsonParser *parser = [[SBJsonParser alloc] init];
+			NSDictionary *teamData = [parser objectWithData:[aRequest responseData]];
+			
+			ControlUserViewController *controlViewController = [[ControlUserViewController alloc] 
+																initWithTeamData:teamData];
+			[self.navigationController pushViewController:controlViewController animated:YES];
+		}
+	}	
+}
 
 #pragma mark - View lifecycle
 

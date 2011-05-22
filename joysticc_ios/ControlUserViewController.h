@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "ASIHTTPRequest.h"
 #import "ButtonGroupView.h"
 #import "BorderedView.h"
+#import "JSON.h"
 
 extern NSInteger const kUpKeyCode;
 extern NSInteger const kDownKeyCode;
@@ -20,7 +23,7 @@ extern float const kPlayerButtonWidth;
 extern float const kPlayerButtonHeight;
 extern float const kPlayerButtonSpace;
 
-@interface ControlUserViewController : UIViewController<ButtonGroupViewDelegate> {
+@interface ControlUserViewController : UIViewController<ButtonGroupViewDelegate, UIAlertViewDelegate> {
     
 	UILabel *teamHeaderLabel;
 	UILabel *teamNameLabel;
@@ -36,6 +39,11 @@ extern float const kPlayerButtonSpace;
 	BorderedView *gameTimeView;
 	BorderedView *nextMoveView;
 	
+	
+	// overlay
+	UIView *_waitOverlay;
+	
+	
 	// dpad buttons
 	UIButton *upButton;
 	UIButton *rightButton;
@@ -46,9 +54,11 @@ extern float const kPlayerButtonSpace;
 	BorderedView *playerButtonGroupView;
 	
 	NSMutableArray *_playerButtons;
+	NSTimer *_startGameTimer;
+	NSInteger _failCount;
 	
 	// state
-	NSInteger _numPlayers;
+	NSDictionary *_teamData;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *teamHeaderLabel;
@@ -79,7 +89,7 @@ extern float const kPlayerButtonSpace;
 @property (nonatomic, retain) IBOutlet BorderedView *playerButtonGroupView;
 
 // init
-- (id)initWithPlayers:(NSInteger)aNumberOfPlayers;
+- (id)initWithTeamData:(NSDictionary *)aTeamData;
 
 // actions
 - (IBAction)dpadHit:(id)sender;

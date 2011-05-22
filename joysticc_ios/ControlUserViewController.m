@@ -25,6 +25,8 @@ float const kPlayerButtonSpace = 8.0f;
 
 - (void)postDirectionEvent:(NSInteger)aDirectionCode;
 - (void)postActionEvent;
+- (void)checkForGameStart;
+- (void)startGame;
 
 @end
 
@@ -55,7 +57,33 @@ float const kPlayerButtonSpace = 8.0f;
 
 - (void)setupViews {
 	
-	CGRect appFrame = [[UIScreen mainScreen] applicationFrame];
+	self.navigationController.navigationBarHidden = YES;
+	
+	CGRect appFrame = [[UIScreen mainScreen] bounds];
+	
+	
+	_waitOverlay = [[UIView alloc] initWithFrame:appFrame];
+	_waitOverlay.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
+	
+	
+	UIActivityIndicatorView *waitLoader = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+	waitLoader.frame = CGRectMake((appFrame.size.width - 20) / 2, 200 - 30, 20, 20);
+	[waitLoader startAnimating];
+	[_waitOverlay addSubview:waitLoader];
+	
+	UILabel *waitLabel = [[UILabel alloc] initWithFrame:CGRectMake((appFrame.size.width - 200) / 2, 200.0f, 
+																   200.0f, 80.0f)];
+	waitLabel.backgroundColor = [UIColor clearColor];
+	waitLabel.numberOfLines = 2;
+	waitLabel.text = @"PLEASE WAIT WHILE THE GAME IS SET UP";
+	waitLabel.textColor = [UIColor whiteColor];
+	waitLabel.font = [UIFont fontWithName:@"silkscreen" size:12.0f];
+	waitLabel.textAlignment = UITextAlignmentCenter;
+	
+	[_waitOverlay addSubview:waitLabel];
+	
+	_waitOverlay.hidden = NO;
+	[self.view addSubview:_waitOverlay];
 	
 	nameBorderedView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.15f];
 	nameBorderedView.borderColor = [UIColor colorWithWhite:0.0f alpha:0.4f];
@@ -67,7 +95,7 @@ float const kPlayerButtonSpace = 8.0f;
 	
 	// build player buttons
 
-	UIImage *playerImageNormal = [UIImage imageNamed:@"player_button"];
+	/*UIImage *playerImageNormal = [UIImage imageNamed:@"player_button"];
 	UIImage *playerImageActive = [UIImage imageNamed:@"player_button_active"];
 	
 	NSMutableArray *playerButtons = [[NSMutableArray alloc] init];
@@ -93,16 +121,18 @@ float const kPlayerButtonSpace = 8.0f;
 		playerButton.tag = i + 1;		
 		
 		[playerButtons addObject:playerButton];
-	}
+	}*/
 
 	
 	currentPlayerView.borderColor = [UIColor colorWithWhite:0.0f alpha:0.9f];
 	
-	ButtonGroupView *buttonGroup = [[ButtonGroupView alloc] initWithFrame:CGRectMake(0.0f, 398.0f, 
+	/*ButtonGroupView *buttonGroup = [[ButtonGroupView alloc] initWithFrame:CGRectMake(0.0f, 398.0f, 
 																					 appFrame.size.width, 60.0f) 
 																  buttons:playerButtons];
 	buttonGroup.delegate = self;
-	[self.view addSubview:buttonGroup];
+	[self.view addSubview:buttonGroup];*/
+	
+	[_waitOverlay bringSubviewToFront:self.view];
 	
 	
 	// set custom fonts
@@ -127,10 +157,10 @@ float const kPlayerButtonSpace = 8.0f;
     return self;
 }
 
-- (id)initWithPlayers:(NSInteger)aNumberOfPlayers {
+- (id)initWithTeamData:(NSDictionary *)aTeamData {
 	self = [super init];
 	if (self) {
-		_numPlayers = aNumberOfPlayers;
+		_teamData = [aTeamData retain];
 	}
 	return self;
 }
@@ -155,6 +185,94 @@ float const kPlayerButtonSpace = 8.0f;
 }
 
 
+- (void)checkForGameStart {
+
+	NSArray *players = [_teamData valueForKeyPath:@"team.players"];
+	LLog(@"Checking for game start: %d players", [players count]);
+	if ([players count] != 2) {
+		_failCount = 0;
+		_startGameTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f 
+										 target:self 
+									   selector:@selector(hasGameStarted) 
+									   userInfo:nil 
+										repeats:YES];		
+	}
+	
+	
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+	if (alertView.tag == 101) {
+		LLog(@"pop view controller");
+		[self.navigationController popViewControllerAnimated:YES];
+	}	
+}
+
+- (void)hasGameStarted {
+	
+	if (_failCount > 6) {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" 
+														message:@"Could not start the game due to errors. Please start a new game." 
+													   delegate:self 
+											  cancelButtonTitle:@"OK" 
+											  otherButtonTitles:nil];
+		[alert setTag:101];
+		[alert show];
+
+		[_startGameTimer invalidate];
+	}
+	else {
+		
+		NSString *teamId = [_teamData valueForKeyPath:@"team.id"];
+		NSString *getTeamUrlString = [NSString stringWithFormat:kGetTeamUrl, teamId];
+		NSURL *getTeamUrl = [NSURL URLWithString:getTeamUrlString];
+		
+		ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:getTeamUrl];
+		
+		[request setDelegate:self];
+		[request setDidFailSelector:@selector(teamRequestFailed:)];
+		[request setDidFinishSelector:@selector(teamRequestFinished:)];	
+		
+		[request startAsynchronous];	
+	}
+}
+
+
+- (void)teamRequestFailed:(ASIHTTPRequest *)aRequest {
+	_failCount++;
+}
+
+- (void)teamRequestFinished:(ASIHTTPRequest *)aRequest {
+	if ([aRequest responseHeaders]) {
+		if ([aRequest responseStatusCode] != 422) {
+			_failCount = 0;
+			SBJsonParser *parser = [[SBJsonParser alloc] init];
+			NSDictionary *teamObj = [parser objectWithData:[aRequest responseData]];
+			NSArray *players = [teamObj valueForKeyPath:@"team.players"];
+			
+			LLog(@"checking for start: %d players", [players count]);
+			
+			if ([players count] > 1) {
+				[_startGameTimer invalidate];
+				[self startGame];
+			}
+		}
+		else {
+			_failCount++;
+		}		
+	}
+	else {
+		_failCount++;
+	}
+}
+
+
+- (void)startGame {
+	[_startGameTimer invalidate];
+	_waitOverlay.hidden = YES;
+}
+
+
 #pragma mark - Network events
 - (void)postDirectionEvent:(NSInteger)aDirectionCode {
 	
@@ -165,14 +283,15 @@ float const kPlayerButtonSpace = 8.0f;
 }
 
 
-
 #pragma mark - View lifecycle
 - (void)viewDidLoad {
 
     [super viewDidLoad];
 	[self setupViews];
 
-	teamNameLabel.text = @"Team Name";
+	[self checkForGameStart];
+
+	teamNameLabel.text = [_teamData valueForKeyPath:@"team.name"];
 	
 }
 
@@ -229,6 +348,9 @@ float const kPlayerButtonSpace = 8.0f;
 	[nextMoveHeaderLabel release];
 	[gameTimeView release];
 	[nextMoveView release];
+	
+	[_teamData release];
+	
     [super dealloc];
 }
 

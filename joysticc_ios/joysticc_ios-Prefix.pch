@@ -30,3 +30,7 @@
 
 
 #define kCreateGameUrl @"http://joysti.cc/games.json"
+#define kCreateTeamUrl @"http://joysti.cc/teams.json"
+#define kGetTeamUrl @"http://joysti.cc/teams/%@.json"
+
+

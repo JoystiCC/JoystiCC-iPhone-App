@@ -12,6 +12,8 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "BorderedView.h"
+#import "ControlUserViewController.h"
+#import "JSON.h"
 
 @interface CreateGameViewController : UIViewController {
     
