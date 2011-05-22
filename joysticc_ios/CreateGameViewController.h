@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 #import "BorderedView.h"
 
 @interface CreateGameViewController : UIViewController {

@@ -132,6 +132,43 @@
 
 - (void)nextButtonHit:(id)sender {
 
+	// get values
+	NSString *gameName = gameNameField.text;
+	NSString *teamName = teamNameField.text;
+	NSString *pinValue = pinField.text;
+	NSString *confirmPinValue = confirmPinField.text;
+	
+	if (![pinValue isEqualToString:confirmPinValue]) {
+		UIAlertView *pinAlert = [[UIAlertView alloc] initWithTitle:@"PIN Mismatch" 
+														   message:@"Your PIN entry and confirmation do not match" 
+														  delegate:nil cancelButtonTitle:@"OK" 
+												 otherButtonTitles:nil];
+		[pinAlert show];
+	}
+	else {
+		// create the game 
+		NSURL *createGameUrl = [NSURL URLWithString:kCreateGameUrl];
+		ASIFormDataRequest *req = [ASIFormDataRequest requestWithURL:createGameUrl];
+		
+		[req setDelegate:self];
+		[req setDidFinishSelector:@selector(createDidFinish:)];
+		[req setDidFailSelector:@selector(createDidFail:)];
+		
+		[req setPostValue:gameName forKey:@"name"];
+		[req setPostValue:pinValue forKey:@"password"];
+		//[req setPostValue:_lastName forKey:@"owner_id"];
+		
+		[req startAsynchronous];
+	}
+}
+
+- (void)createDidFail:(ASIHTTPRequest *)aRequest {
+
+	LLog(@"request failed: %@", [aRequest.error description]);
+}
+
+- (void)createDidFinish:(ASIHTTPRequest *)aRequest {
+	LLog(@"finished");
 }
 
 

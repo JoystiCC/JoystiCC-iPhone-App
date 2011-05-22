@@ -102,6 +102,12 @@
 		C8A969771388C2BC008C5C62 /* next_button_small_hit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8A969731388C2BC008C5C62 /* next_button_small_hit@2x.png */; };
 		C8A969781388C2BC008C5C62 /* next_button_small.png in Resources */ = {isa = PBXBuildFile; fileRef = C8A969741388C2BC008C5C62 /* next_button_small.png */; };
 		C8A969791388C2BC008C5C62 /* next_button_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8A969751388C2BC008C5C62 /* next_button_small@2x.png */; };
+		C8A9697D1388C37E008C5C62 /* MoveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A9697B1388C37D008C5C62 /* MoveViewController.m */; };
+		C8A9697E1388C37E008C5C62 /* MoveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A9697C1388C37E008C5C62 /* MoveViewController.xib */; };
+		C8A969821388C54B008C5C62 /* JoinGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A969801388C54B008C5C62 /* JoinGameViewController.m */; };
+		C8A969831388C54B008C5C62 /* JoinGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A969811388C54B008C5C62 /* JoinGameViewController.xib */; };
+		C8A969861388C985008C5C62 /* small_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C8A969841388C985008C5C62 /* small_button.png */; };
+		C8A969871388C985008C5C62 /* small_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8A969851388C985008C5C62 /* small_button@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +256,14 @@
 		C8A969731388C2BC008C5C62 /* next_button_small_hit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "next_button_small_hit@2x.png"; path = "assets/controls/next_button_small_hit@2x.png"; sourceTree = SOURCE_ROOT; };
 		C8A969741388C2BC008C5C62 /* next_button_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = next_button_small.png; path = assets/controls/next_button_small.png; sourceTree = SOURCE_ROOT; };
 		C8A969751388C2BC008C5C62 /* next_button_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "next_button_small@2x.png"; path = "assets/controls/next_button_small@2x.png"; sourceTree = SOURCE_ROOT; };
+		C8A9697A1388C37D008C5C62 /* MoveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveViewController.h; sourceTree = "<group>"; };
+		C8A9697B1388C37D008C5C62 /* MoveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveViewController.m; sourceTree = "<group>"; };
+		C8A9697C1388C37E008C5C62 /* MoveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoveViewController.xib; sourceTree = "<group>"; };
+		C8A9697F1388C54A008C5C62 /* JoinGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinGameViewController.h; sourceTree = "<group>"; };
+		C8A969801388C54B008C5C62 /* JoinGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinGameViewController.m; sourceTree = "<group>"; };
+		C8A969811388C54B008C5C62 /* JoinGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JoinGameViewController.xib; sourceTree = "<group>"; };
+		C8A969841388C985008C5C62 /* small_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = small_button.png; path = assets/controls/small_button.png; sourceTree = SOURCE_ROOT; };
+		C8A969851388C985008C5C62 /* small_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "small_button@2x.png"; path = "assets/controls/small_button@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +405,12 @@
 				C8A969541388A545008C5C62 /* CreateGameViewController.h */,
 				C8A969551388A545008C5C62 /* CreateGameViewController.m */,
 				C8A969561388A545008C5C62 /* CreateGameViewController.xib */,
+				C8A9697A1388C37D008C5C62 /* MoveViewController.h */,
+				C8A9697B1388C37D008C5C62 /* MoveViewController.m */,
+				C8A9697C1388C37E008C5C62 /* MoveViewController.xib */,
+				C8A9697F1388C54A008C5C62 /* JoinGameViewController.h */,
+				C8A969801388C54B008C5C62 /* JoinGameViewController.m */,
+				C8A969811388C54B008C5C62 /* JoinGameViewController.xib */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -408,6 +428,8 @@
 		C8A9687213884792008C5C62 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				C8A969841388C985008C5C62 /* small_button.png */,
+				C8A969851388C985008C5C62 /* small_button@2x.png */,
 				C8A969721388C2BC008C5C62 /* next_button_small_hit.png */,
 				C8A969731388C2BC008C5C62 /* next_button_small_hit@2x.png */,
 				C8A969741388C2BC008C5C62 /* next_button_small.png */,
@@ -718,6 +740,10 @@
 				C8A969771388C2BC008C5C62 /* next_button_small_hit@2x.png in Resources */,
 				C8A969781388C2BC008C5C62 /* next_button_small.png in Resources */,
 				C8A969791388C2BC008C5C62 /* next_button_small@2x.png in Resources */,
+				C8A9697E1388C37E008C5C62 /* MoveViewController.xib in Resources */,
+				C8A969831388C54B008C5C62 /* JoinGameViewController.xib in Resources */,
+				C8A969861388C985008C5C62 /* small_button.png in Resources */,
+				C8A969871388C985008C5C62 /* small_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +810,8 @@
 				C8A9691C138861E5008C5C62 /* BorderedView.m in Sources */,
 				C8A9695313888519008C5C62 /* ButtonGroupView.m in Sources */,
 				C8A969571388A545008C5C62 /* CreateGameViewController.m in Sources */,
+				C8A9697D1388C37E008C5C62 /* MoveViewController.m in Sources */,
+				C8A969821388C54B008C5C62 /* JoinGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
