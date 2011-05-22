@@ -34,5 +34,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>chunkfive.ttf</string>
+		<string>slkscr.ttf</string>
+		<string>slkscrb.ttf</string>
+		<string>slkscre.ttf</string>
+		<string>slkscreb.ttf</string>
+	</array>
 </dict>
 </plist>

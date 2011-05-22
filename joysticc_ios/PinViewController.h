@@ -15,7 +15,7 @@ extern NSInteger const kPinEntryWidth;
 extern NSInteger const kPinEntryHeight;
 extern NSInteger const kPinEntryGap;
 
-@interface PinViewController : UIViewController {
+@interface PinViewController : UIViewController<UITextFieldDelegate> {
     
 	id<PinViewControllerDelegate> _delegate;
 	NSMutableArray *_pinEntries;

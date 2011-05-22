@@ -11,6 +11,7 @@
 
 @protocol PinViewControllerDelegate <NSObject>
 
+@optional
 - (void)pinValidationRequested:(NSString *)aPin;
 - (void)pinCancelRequested;
 

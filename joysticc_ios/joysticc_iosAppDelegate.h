@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PinViewController.h"
+#import "CreateGameViewController.h"
 
-@interface joysticc_iosAppDelegate : NSObject <UIApplicationDelegate, PinViewControllerDelegate> {
-
+@interface joysticc_iosAppDelegate : NSObject <UIApplicationDelegate> {
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 @end

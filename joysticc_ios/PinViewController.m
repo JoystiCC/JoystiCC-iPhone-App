@@ -25,14 +25,26 @@ NSInteger const kPinEntryGap = 8;
 - (void)initialize {
 	
 	// render the pin entry layout
-	float screenWidth = [[UIScreen mainScreen] applicationFrame].size.width;
+	CGRect appFrame = [[UIScreen mainScreen] bounds];
+	float screenWidth = appFrame.size.width;
 	float startX = (screenWidth - ((kPinLength * (kPinEntryWidth + kPinEntryGap)) - kPinEntryGap)) / 2;
+
+	UIImage *bgImage = [UIImage imageNamed:@"app_bg.png"];
+	UIImageView *bgImageView = [[UIImageView alloc] initWithImage:bgImage];
+	bgImageView.frame = appFrame;
+	[self.view addSubview:bgImageView];
+	
+	UIView *shadeView = [[UIView alloc] initWithFrame:appFrame];
+	shadeView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5f];
+	[self.view addSubview:shadeView];
 	
 	UILabel *pinHeader = [[UILabel alloc] initWithFrame:CGRectMake(startX, 120 - 26, 200.0f, 22.0f)];
 	pinHeader.text = @"Enter your PIN";
-	pinHeader.font = [UIFont systemFontOfSize:10.0f];
-	pinHeader.textColor = [UIColor darkGrayColor];
+	pinHeader.textColor = UIColorFromHex(0xE36019);
+	pinHeader.backgroundColor = [UIColor clearColor];
+	pinHeader.font = [UIFont fontWithName:@"silkscreen" size:14.0f];
 	[self.view addSubview:pinHeader];
+	
 	
 	
 	// master pin entry
@@ -57,7 +69,7 @@ NSInteger const kPinEntryGap = 8;
 		UITextField *pinEntry = [[UITextField alloc] initWithFrame:entryFrame];
 		pinEntry.borderStyle = UITextBorderStyleNone;
 		pinEntry.background = [UIImage imageNamed:@"pin_entry"];
-		pinEntry.font = [UIFont boldSystemFontOfSize:32.0f];
+		pinEntry.font = [UIFont fontWithName:@"silkscreen" size:32.0f];
 		pinEntry.textAlignment = UITextAlignmentCenter;
 		pinEntry.tag = i + 1;
 		pinEntry.keyboardType = UIKeyboardTypeNumberPad;
